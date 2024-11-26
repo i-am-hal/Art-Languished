@@ -73,6 +73,7 @@ DON'T WORK DURING RELEASE YOU DOLT!"
         <CURSET 2 1> <CLEAR 1>)>
 
     <COND
+        ;"If we need the extra line, add it in"
         (.SHOW-FEELING-LINE?
             <SETG EMOTION-LINE-USED? T>
             <SPLIT 2>)
@@ -115,15 +116,15 @@ DON'T WORK DURING RELEASE YOU DOLT!"
             <COND
                 ;"If there isn't any dissonance, we have SOME coherence"
                 (<0? ,PLAYER-DISSONANCE>
-                    <CURSET 2 0 ;<+ </ <* .WIDTH 0 ;1> 8> 8>>
+                    <CURSET 2 0>
                     <TELL " Coherence: "> <FEELING-LEVEL-STRING ,PLAYER-COHERENCE>)
                 
                 ;"Otherwise, some loathing, no love"
                 (ELSE
-                    <CURSET 2 0 ;<+ </ <* .WIDTH 0 ;1> 8> 8>>
+                    <CURSET 2 0>
                     <TELL " Dissonance: "> <FEELING-LEVEL-STRING ,PLAYER-DISSONANCE>)>
             
-            <CURSET 2 <- </ .WIDTH 4> 0> ;<- </ <* .WIDTH 3> 8> 5>>
+            <CURSET 2 <- </ .WIDTH 4> 0>>
             <TELL "Apathy: "> <FEELING-LEVEL-STRING ,PLAYER-APATHY>)>
 
         ;"Display the amount of dread the player has"
@@ -153,12 +154,12 @@ DON'T WORK DURING RELEASE YOU DOLT!"
             <COND
                 ;"If there isn't any loathing, we have SOME love"
                 (<0? ,PLAYER-LOATHE>
-                    <CURSET 2 <- .WIDTH 14> ;<+ </ <* .WIDTH 3> 4> 2>>
+                    <CURSET 2 <- .WIDTH 14>>
                     <TELL "Love: "> <FEELING-LEVEL-STRING ,PLAYER-LOVE>)
                 
                 ;"Otherwise, some loathing, no love"
                 (ELSE
-                    <CURSET 2 <- .WIDTH 18> ;<- </ <* .WIDTH 3> 4> 2>>
+                    <CURSET 2 <- .WIDTH 18>>
                     <TELL "Loathing: "> <FEELING-LEVEL-STRING ,PLAYER-LOATHE>)>)>)>
 
     ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

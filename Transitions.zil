@@ -46,10 +46,16 @@ heart, it will not die, it will not wither, will it? You feel your mouth move, a
 solar system, all of you. It was only natural to take to art in that context. Every work you made allowed you to release that pressure, cool down the heat
 within you. As you grew up and grew older, you recognized the cruel reality that, most likely, it would be infeasible to sustain yourself on your artistic works.
 Your parents, loving as they were, and concerned for your well-being, tried to guide you onto a path of stability. The light within you never dimmed, though.
-Every step towards this stability made you feel more and more hollow, less and less real. It came to a point, one cool autumn night, that you came to think
-that if you continued this way, you would fade. You would be gone, and whatever remained would be a shambling similacrum of yourself.")
+Every step towards this stability made you feel more and more hollow, less and less real. Then, one late autumn night you found yourself walking the trails
+by your home. You marveled at the setting sun, its vibrant streaks of golden and orange light. The clouds a soft pink color. You couldn't help but notice
+your scene. The leaves a fabulous managerie of violets, golds, and reds, almost harmonizing with the setting sun. In that moment it was as if you had awoken
+from some fugue. You had almost completely forgotten about this, the beauty of the world around you. You eventually found yourself in a small clearing, and
+continued to watch the setting sun. You felt that all too familliar swell within you, that burning fire within your chest. The beauty of the world, of nature,
+was clearly something to be captured, to be revered. People, all people, ought to be able to marvel at its splendor as you do now. The light within you whispered
+a conclusion that you could now understand. The chilled air enters your lungs, stimulating your senses by its cooling of your lungs. You know of only one way
+to capture and share this splendor. As the last rays of that golden light faded,")
     (CHOICES
-        1 "It only made sense, then, to go to university and study the arts." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
+        1 "you had made up your mind to study in the arts." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
 
 ;"Modify stats so player starts with 1 dissonance, 2 apathy"
 <ROUTINE PROLOGUE-TIRED-OF-MOLD-F ()
