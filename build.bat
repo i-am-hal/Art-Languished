@@ -1,0 +1,1 @@
+zilf -w Main.zil && zapf Main.zap && del *.zap
