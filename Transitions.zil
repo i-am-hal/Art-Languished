@@ -52,7 +52,7 @@ your scene. The leaves a fabulous managerie of violets, golds, and reds, almost 
 from some fugue. You had almost completely forgotten about this, the beauty of the world around you. You eventually found yourself in a small clearing, and
 continued to watch the setting sun. You felt that all too familliar swell within you, that burning fire within your chest. The beauty of the world, of nature,
 was clearly something to be captured, to be revered. People, all people, ought to be able to marvel at its splendor as you do now. The light within you whispered
-a conclusion that you could now understand. The chilled air enters your lungs, stimulating your senses by its cooling of your lungs. You know of only one way
+a conclusion that you could now understand. You breathed in the autumn air, stimulating your senses by its cooling of your lungs. You know of only one way
 to capture and share this splendor. As the last rays of that golden light faded,")
     (CHOICES
         1 "you had made up your mind to study in the arts." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
