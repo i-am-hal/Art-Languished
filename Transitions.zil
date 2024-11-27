@@ -33,7 +33,7 @@ heart, it will not die, it will not wither, will it? You feel your mouth move, a
     (CHOICES
         1 "\"All my life I have loved art.\"" TO PROLOGUE-LOVE-THE-ARTS                         ;"Change to 2 love"
         2 "\"I'm tired. Exausted of this mold.\"" TO PROLOGUE-TIRED-OF-MOLD                     ;"Change to 1 dissonance"
-        3 "\"I have to be more. I'm not just a single note.\"" TO PROLOGUE-DESPERATE-FOR-MORE)> ;"Change to 3 despair"
+        3 "\"I have to be more. I'm not just a single note.\"" TO PROLOGUE-DESPERATE-FOR-MORE)> ;"Change to 3 despair, 2 dissonance ~ unravelling"
 
 ;"Modify stats so player starts with 2 love, 1 despair"
 <ROUTINE PROLOGUE-LOVE-THE-ARTS-F ()
@@ -63,7 +63,7 @@ to capture and share this splendor. As the last rays of that golden light faded,
     <SETG PLAYER-APATHY     ,FEELING-MODERATE>
     <SETG PLAYER-DISSONANCE ,FEELING-SLIGHT>>
 
-<LIGHTROOM PROLOGUE-TIRED-OF-MOLD (DESC "A Grinding Pain")
+<LIGHTROOM PROLOGUE-TIRED-OF-MOLD (DESC "Hollow Chorus of the Heart")
     (ENTRYFCN PROLOGUE-TIRED-OF-MOLD-F)
     (LDESC "For a time you sought to find the stability in a career. You worked, slept, ate, every day, a loathesome drone of life. You did make progress,
 you were seeing the fruits of this hard labor, but it costed you. Each hour, each day, week, year, that light within you grew hotter and more caustic. It burned
@@ -76,15 +76,34 @@ you that you were staring at your own future if you stayed the course on your cu
     (CHOICES
         1 "It would be the next day that you applied to study in the arts at university." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
 
-;"Modify stats so player starts with 3 despair"
+;"Modify stats so player starts with 3 despair, 2 dissonance"
 <ROUTINE PROLOGUE-DESPERATE-FOR-MORE-F ()
     <SETG PLAYER-DESPAIR ,FEELING-SEVERE>
     <SETG PLAYER-LOVE    ,FEELING-ABSENT>
-    <SETG PLAYER-LOATHE  ,FEELING-ABSENT>>
+    <SETG PLAYER-LOATHE  ,FEELING-ABSENT>
+    
+    <SETG PLAYER-DISSONANCE ,FEELING-MODERATE>
+    <SETG PLAYER-APATHY     ,FEELING-SLIGHT>
+    <SETG PLAYER-COHERENCE  ,FEELING-ABSENT>>
 
-<LIGHTROOM PROLOGUE-DESPERATE-FOR-MORE (DESC "Dead Chorus of the Heart")
+<LIGHTROOM PROLOGUE-DESPERATE-FOR-MORE (DESC "Fraying of the Self")
     (ENTRYFCN PROLOGUE-DESPERATE-FOR-MORE-F)
-    (LDESC "")>
+    (LDESC "Years. Years passed, but to you it has felt like an eternal shamble. Your work, meaningless work, consumed you, your time, your life. Your social
+engagements eroded away like tombstones against the endless caustic rain born of industry and pollution. Your mind a confused waste, home to only that black
+fog which made it difficult to think, difficult to breathe. Your heart fluttered gently, that light within you flickering like a latern in a great tempest.
+It was difficult, if not impossible to seperate your life from your work, and truly you could not remember what you did for leisure. A great, smooth wasteland
+is what you wandered for an unidentifiably long period of your life. You tried to harness that flickering flame within you, but always, always, you would be
+left with only scraps, morsels of a spiritual delicacy which did not nourish you, did not replenish you, but only abated that grinding, endless waste from
+wholly snuffing that light from you. It was on one of your weekends, one late October night, you found yourself walking the small foottrails near your home.
+The wires, those cords of your being which composed the music of your soul snapped. In the wilderness, amongst the dying leaves and abandonment of the sun that
+you screamed, clapsed to your face, and wept. The years of tension on those cords finally giving way to this; and in the afterglow of your mania, as that fetid
+smog in your mind parted for a moment, you saw what your life was becoming. What you were becoming- not a person, not a human, but a shambling lever, an implement,
+for the cold churning of the world around you. In the quiet of the soft rain, you heard that faint flame that still remained. It had always been within you,
+and it was this flame which managed to stave your spiritual starvation for so long. It felt like the last thing you had, the last part of your self which had not
+been ground into a fine power to be swept away. Tears streamed down your face, like rivers greeting an ancient arid wasteland, you held onto this fragment of
+yourself. You would not let the whole of you be snuffed out.")
+    (CHOICES
+        1 "Study in the arts, keep the flame alive, keep yourself alive." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
 
 <LIGHTROOM PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY (DESC "So You Went to University")>
 
