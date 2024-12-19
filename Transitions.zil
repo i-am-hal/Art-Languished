@@ -68,11 +68,11 @@ to capture and share this splendor. As the last rays of that golden light faded,
     (LDESC "For a time you sought to find the stability in a career. You worked, slept, ate, every day, a loathesome drone of life. You did make progress,
 you were seeing the fruits of this hard labor, but it costed you. Each hour, each day, week, year, that light within you grew hotter and more caustic. It burned
 and began to eat away at something within you, something you never knew you had, something you had not a name for. A hollowness within your very soul began
-to fester, and you found yourself thinking of yourself, your life, more and more like that of an automaton than a person. After years of this it all suddenly
+to fester, and you found that you begun thinking of yourself, your life, more and more like that of an automaton than a person. After years of this it all suddenly
 washed over you late one autumn night. You had been walking. Perhaps it was the chill in the air, perhaps the tired feeling behind your eyes. You happened upon
 a felled tree, which from months of decay, and the unrelenting rains had split it in two. It was hollow inside. Each step closer you were greeted by the crunch
 of leaves. It was there, as you stared at that ancient twisted bark, the hollow cavity within, that you began to sob uncontrollably. There was no doubt within
-you that you were staring at your own future if you stayed the course on your current path.")
+you that you were staring at your own future if you stayed the course on your current path. You would be consumed from within, and left in the dirt.")
     (CHOICES
         1 "It would be the next day that you applied to study in the arts at university." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
 
@@ -100,11 +100,15 @@ you screamed, clapsed to your face, and wept. The years of tension on those cord
 smog in your mind parted for a moment, you saw what your life was becoming. What you were becoming- not a person, not a human, but a shambling lever, an implement,
 for the cold churning of the world around you. In the quiet of the soft rain, you heard that faint flame that still remained. It had always been within you,
 and it was this flame which managed to stave your spiritual starvation for so long. It felt like the last thing you had, the last part of your self which had not
-been ground into a fine power to be swept away. Tears streamed down your face, like rivers greeting an ancient arid wasteland, you held onto this fragment of
+been ground into a fine power to be swept away. Tears streamed down your face, like rivers greeting an ancient parched wasteland, you held onto this fragment of
 yourself. You would not let the whole of you be snuffed out.")
     (CHOICES
         1 "Study in the arts, keep the flame alive, keep yourself alive." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
 
-<LIGHTROOM PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY (DESC "So You Went to University")>
+<LIGHTROOM PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY (DESC "Study in the Arts")
+    (LDESC "You attended a local university. It was not particularly prestigious, and admittedly its arts programme was modest, if not a little neglected.
+What the institution lacked in material support for the arts, it made up for with its professors. A passionate, driven, cast. Each of them poured their love
+for the arts not only within their own work, but with their teaching as well. Many students who would take one class or another taught by these professors would
+find the spark of that inspirational flame blooming within them, even if the arts had not been their calling.")>
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

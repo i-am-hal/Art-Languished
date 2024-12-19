@@ -127,3 +127,12 @@ LOVE      <-DESPAIR-> LOATHE"
 <GLOBAL ART-LANGUISHED-ACT      0>
 
 <GLOBAL HAVE-JANITOR-DOOR-KEY? <>>
+
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;"Tests / Conditions"
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"Randomly tests if Carcosa/Yellow King has successfully influenced the dreamlands.
+Every point of dread is +13% probability, and every point of despair +11%"
+<ROUTINE CALL-OF-CARCOSA? ()
+    <RETURN <PROB <+ <* 13 ,PLAYER-DREAD> <* 11 ,PLAYER-DESPAIR>>>>>
