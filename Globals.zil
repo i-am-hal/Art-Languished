@@ -9,6 +9,12 @@ LOVE      <-DESPAIR-> LOATHE"
 ;"What act we're in"
 <GLOBAL ACT-NUMBER        0>
 
+;"The different focuses in terms of artistic expression"
+<CONSTANT ART-FOCUS-WRITING   1>
+<CONSTANT ART-FOCUS-PAINTING  2>
+<CONSTANT ART-FOCUS-SCULPTING 3>
+<GLOBAL ART-FOCUS <>>
+
 ;"Strength of pull towards one of the emotional states.
 [1 ~ Typical][2 ~ Significant/Heavy Hitting][3 ~ Life Altering]"
 <CONSTANT FEELING-ABSENT       0>

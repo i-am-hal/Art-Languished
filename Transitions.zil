@@ -109,6 +109,50 @@ yourself. You would not let the whole of you be snuffed out.")
     (LDESC "You attended a local university. It was not particularly prestigious, and admittedly its arts programme was modest, if not a little neglected.
 What the institution lacked in material support for the arts, it made up for with its professors. A passionate, driven, cast. Each of them poured their love
 for the arts not only within their own work, but with their teaching as well. Many students who would take one class or another taught by these professors would
-find the spark of that inspirational flame blooming within them, even if the arts had not been their calling.")>
+find the spark of that inspirational flame blooming within them, even if the arts had not been their calling.")
+    (CHOICES
+        1 "You never felt so alive." TO PROLOGUE-STUDY-ARTS-1
+        2 "With their guidance, your skill flourished and blossomed." TO PROLOGUE-STUDY-ARTS-1
+        3 "Yet.. you still felt like you were missing something in your art." TO PROLOGUE-STUDY-ARTS-1
+        4 "You found their adherence to traditional style irritating." TO PROLOGUE-STUDY-ARTS-1)>
+
+<LIGHTROOM PROLOGUE-STUDY-ARTS-1 (DESC "Study in the Arts")
+    (LDESC "Your skills in various artforms bloomed with the guidance of your teachers. You did not restrain yourself to one medium, and you found yourself
+loving different aspects between these avenues. You wrote poems, sketched buildings, painted landscapes, sculpted twisting marvelous spires, and increasingly
+impressed yourself. It was as if you were truly beginning to know yourself, and with every moment of self discovery that warmth- that flame- within your heart
+grew brighter and more radiant. As your studies progressed, and despite your enjoyment of many artforms, you found yourself particularly drawn to..")
+    (CHOICES
+        1 "Poetry, writing." TO PROLOGUE-WRITING-AFFINITY
+        2 "Painting, sketching." TO PROLOGUE-PAINTING-AFFINITY
+        3 "Sculpting, pottery." TO PROLOGUE-POTTERY-AFFINITY)>
+
+<ROUTINE PROLOGUE-SET-WRITING-AFFINITY ()
+    <SETG ART-FOCUS ,ART-FOCUS-WRITING>>
+<ROUTINE PROLOGUE-SET-PAINTING-AFFINITY ()
+    <SETG ART-FOCUS ,ART-FOCUS-PAINTING>>
+<ROUTINE PROLOGUE-SET-SCULPTING-AFFINITY ()
+    <SETG ART-FOCUS ,ART-FOCUS-SCULPTING>>
+
+<LIGHTROOM PROLOGUE-WRITING-AFFINITY (DESC "A thing for Writing")
+    (ENTRYFCN PROLOGUE-SET-WRITING-AFFINITY)
+    (CHOICEEXIT PROLOGUE-NEW-ACQUAINTANCE)>
+
+<LIGHTROOM PROLOGUE-PAINTING-AFFINITY (DESC "A thing for Painting")
+    (ENTRYFCN PROLOGUE-SET-PAINTING-AFFINITY)
+    (CHOICEEXIT PROLOGUE-NEW-ACQUAINTANCE)>
+
+<LIGHTROOM PROLOGUE-POTTERY-AFFINITY (DESC "A thing for Sculpting")
+    (ENTRYFCN PROLOGUE-SET-SCULPTING-AFFINITY)
+    (CHOICEEXIT PROLOGUE-NEW-ACQUAINTANCE)>
+
+<LIGHTROOM PROLOGUE-NEW-ACQUAINTANCE (DESC "Study in the Arts ) Start to a Friendship") 
+    (LDESC "Not long into your first semester you found yourself growing close to a someone in your art classes named Arthur Witaker.
+He was a bright fellow, with a hearty laugh, and a coy twinkle in his eye. Like you, he was pursuing his passions, although he was more
+interested in art within the context of archeology, or anthropology. He felt that an artist' eye in regard to ancient people's works, a
+deeper, perhaps more fundemental, understanding could bloom. His eyes twinkled with his passion.")
+    (CHOICES
+        1 "You wished him luck in his studies."
+        2 "You were happy he could pursue his passions."
+        3 "")>
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
