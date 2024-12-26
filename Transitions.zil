@@ -88,20 +88,20 @@ you that you were staring at your own future if you stayed the course on your cu
 
 <LIGHTROOM PROLOGUE-DESPERATE-FOR-MORE (DESC "Fraying of the Self")
     (ENTRYFCN PROLOGUE-DESPERATE-FOR-MORE-F)
-    (LDESC "Years. Years passed, but to you it has felt like an eternal shamble. Your work, meaningless work, consumed you, your time, your life. Your social
-engagements eroded away like tombstones against the endless caustic rain born of industry and pollution. Your mind a confused waste, home to only that black
+    (LDESC "Years. Years passed, but to you it has felt like an eternal shamble. Your work- meaningless work- consumed you, your time, your life. Your social
+engagements eroded away like tombstones against the endless caustic rain born of industry and pollution. Your mind a confused haze, home to only that black
 fog which made it difficult to think, difficult to breathe. Your heart fluttered gently, that light within you flickering like a latern in a great tempest.
-It was difficult, if not impossible to seperate your life from your work, and truly you could not remember what you did for leisure. A great, smooth wasteland
+It was difficult, if not impossible to seperate your life from your work, and truly you could not remember what you did for leisure. A great, smooth plane 
 is what you wandered for an unidentifiably long period of your life. You tried to harness that flickering flame within you, but always, always, you would be
-left with only scraps, morsels of a spiritual delicacy which did not nourish you, did not replenish you, but only abated that grinding, endless waste from
+left with only scraps, morsels of a spiritual delicacy which did not nourish you, did not replenish you, but only abated that grinding, endless thing from
 wholly snuffing that light from you. It was on one of your weekends, one late October night, you found yourself walking the small foottrails near your home.
 The wires, those cords of your being which composed the music of your soul snapped. In the wilderness, amongst the dying leaves and abandonment of the sun that
-you screamed, clapsed to your face, and wept. The years of tension on those cords finally giving way to this; and in the afterglow of your mania, as that fetid
-smog in your mind parted for a moment, you saw what your life was becoming. What you were becoming- not a person, not a human, but a shambling lever, an implement,
-for the cold churning of the world around you. In the quiet of the soft rain, you heard that faint flame that still remained. It had always been within you,
-and it was this flame which managed to stave your spiritual starvation for so long. It felt like the last thing you had, the last part of your self which had not
-been ground into a fine power to be swept away. Tears streamed down your face, like rivers greeting an ancient parched wasteland, you held onto this fragment of
-yourself. You would not let the whole of you be snuffed out.")
+you screamed, clapsed to your face, and erratically wept. The years of tension on those cords finally giving way to this; and in the afterglow of your mania, as
+that fetid smog in your mind parted for a moment, you saw what your life was becoming. What you were becoming- not a person, not a human- but a shambling lever,
+an implement, for the cold churning of the world around you. In the quiet of the soft rain, you heard that faint flame that still remained. It had always been
+within you, and it was this flame which managed to stave your spiritual starvation for so long. It felt like the last thing you had, the last part of your self
+which had not been ground into a fine power to be swept away. Tears streamed down your face like rivers greeting an ancient parched desert; you held onto this
+fragment of yourself. You would not let the whole of you be snuffed out.")
     (CHOICES
         1 "Study in the arts, keep the flame alive, keep yourself alive." TO PROLOGUE-SO-YOU-WENT-TO-UNIVERSITY)>
 
@@ -145,14 +145,47 @@ grew brighter and more radiant. As your studies progressed, and despite your enj
     (ENTRYFCN PROLOGUE-SET-SCULPTING-AFFINITY)
     (CHOICEEXIT PROLOGUE-NEW-ACQUAINTANCE)>
 
-<LIGHTROOM PROLOGUE-NEW-ACQUAINTANCE (DESC "Study in the Arts ) Start to a Friendship") 
-    (LDESC "Not long into your first semester you found yourself growing close to a someone in your art classes named Arthur Witaker.
-He was a bright fellow, with a hearty laugh, and a coy twinkle in his eye. Like you, he was pursuing his passions, although he was more
-interested in art within the context of archeology, or anthropology. He felt that an artist' eye in regard to ancient people's works, a
-deeper, perhaps more fundemental, understanding could bloom. His eyes twinkled with his passion.")
+<LIGHTROOM PROLOGUE-NEW-ACQUAINTANCE (DESC "Start of a Friendship") 
+    (LDESC "Not long into your first semester you found yourself growing close to someone in your art classes named Arthur Witaker.
+He was a bright fellow, with a hearty laugh, and infectious grin. Like you, he was pursuing his passions, although he was more interested 
+in art within the context of archeology or anthropology. He tells you one day that he felt an artist' eye in regard to ancient people's
+works could reveal deeper, perhaps more fundemental, insights. His eyes twinkled with passion.")
     (CHOICES
-        1 "You wished him luck in his studies."
-        2 "You were happy he could pursue his passions."
-        3 "")>
+        1 "You told him that his ideas intruiged you." TO PROLOGUE-END-OF-STUDIES
+        2 "You were happy he could pursue his passions." TO PROLOGUE-END-OF-STUDIES
+        3 "You politely wished him well with his studies." TO PROLOGUE-END-OF-STUDIES
+        4 "His determination inspired you." TO PROLOGUE-END-OF-STUDIES)>
+
+<LIGHTROOM PROLOGUE-END-OF-STUDIES (DESC "University Flew Past You")
+    (LDESC "The years passed in a flurry of sleepless nights, last-minute preparations, the making of art you were truly proud of,
+and many a night studying at the local pub with Arthur. A part of him, no doubt from the lack of sleep, withered away, and he now
+possessed a perpetually exhausted look in the eyes. His passion never wavered, however. It was almost unreal to the both of you
+when you were both given your diplomas, and it was official that you had both graduated. The future seemed bright. Arty, as you
+teasingly called him, even had a job ready for him. The shadow of implication in his moving oversees, and what it would mean
+for your friendship, hardly dented the mood that night. You two agreed to celebrate at the pub. Burned in your mind was his smile
+after ordering you both drinks. He had pushed up his spectacles, and then lifted his glass high. \"A toast!\" He exclaimed.")
+    (CHOICES
+        1 "\"To our future success!\"" TO PROLOGUE-CHEERS-FADE
+        2 "\"To our health and happiness!\"" TO PROLOGUE-CHEERS-FADE
+        3 "\"To good friends and fine art!\"" TO PROLOGUE-CHEERS-FADE
+        4 "\"To the end of an epoch!\"" TO PROLOGUE-CHEERS-FADE)>
+
+<LIGHTROOM PROLOGUE-CHEERS-FADE (DESC "Echoes of Brighter Futures")
+    (ENTRYFCN PROLOGUE-BACKSTORY-COMPLETE-F)
+    (LDESC "Your glasses clinked, and the sound of the glass echoed through the days, through the months, years; fading
+behind you like the home you abadondoned by train. You moved across the country, to a sprawling metropolis where you thought
+you could carve a name for youself. You have tried, but you have been lucky to scrape by over the last few years. There are
+people who like your work, appreciate it, you even have frequent patrons, but life is expensive, and poverty is cheap. Through
+the infrequent letters every few months from Arty, he urges you to keep the faith, keep crafting your work. He tells you that
+it is but a matter of time \".. until the whole of the city is enraptured by your works, old friend! You'll look fondly, and 
+perhaps, longingly, at this drought you're in now!\"")
+    (CHOICES
+        1 "You hoped he was right." TO APARTMENT-LIVINGROOM
+        2 "Tried to ignore the worry in your heart." TO APARTMENT-LIVINGROOM
+        3 "You had not the heart to tell him otherwise." TO APARTMENT-LIVINGROOM)>
+
+<ROUTINE PROLOGUE-BACKSTORY-COMPLETE-F ()
+    <SETG PROLOGUE-BACKSTORY-COMPLETE T>
+    <SETG AUGUR-IS-LEADING?           <>>>
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -14,6 +14,10 @@ LOVE      <-DESPAIR-> LOATHE"
 <CONSTANT ART-FOCUS-PAINTING  2>
 <CONSTANT ART-FOCUS-SCULPTING 3>
 <GLOBAL ART-FOCUS <>>
+;"If the prologue has been finished through yet or not"
+<GLOBAL PROLOGUE-COMPLETE <>>
+;"Specifically if the backstory part of the prologue is complete"
+<GLOBAL PROLOGUE-BACKSTORY-COMPLETE <>>
 
 ;"Strength of pull towards one of the emotional states.
 [1 ~ Typical][2 ~ Significant/Heavy Hitting][3 ~ Life Altering]"
