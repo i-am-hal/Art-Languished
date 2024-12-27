@@ -174,11 +174,12 @@ after ordering you both drinks. He had pushed up his spectacles, and then lifted
     (ENTRYFCN PROLOGUE-BACKSTORY-COMPLETE-F)
     (LDESC "Your glasses clinked, and the sound of the glass echoed through the days, through the months, years; fading
 behind you like the home you abadondoned by train. You moved across the country, to a sprawling metropolis where you thought
-you could carve a name for youself. You have tried, but you have been lucky to scrape by over the last few years. There are
-people who like your work, appreciate it, you even have frequent patrons, but life is expensive, and poverty is cheap. Through
-the infrequent letters every few months from Arty, he urges you to keep the faith, keep crafting your work. He tells you that
-it is but a matter of time \".. until the whole of the city is enraptured by your works, old friend! You'll look fondly, and 
-perhaps, longingly, at this drought you're in now!\"")
+you could carve a name for youself. You tried. You have tried with all your might. There are people who like your work,
+appreciate it, you even have frequent patrons, but life is expesive, and poverty is cheap. The sad reality is that you have
+thus far been lucky to scrape by every month, during each of these few years. Through the infrequent every month-or-so letters
+from Arty, he has urged you to keep the faith, keep crafting your work. He has told you that is \".. but a matter of time until
+the whole of the city is enraptured by your works, old friend! You'll look fondly, and perhaps, longingly, at this drought you're
+in now!\"")
     (CHOICES
         1 "You hoped he was right." TO APARTMENT-LIVINGROOM
         2 "Tried to ignore the worry in your heart." TO APARTMENT-LIVINGROOM
