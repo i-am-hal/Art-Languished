@@ -77,5 +77,6 @@ behavior for when being consumed and the like.)"
             ;"Remove all inspiration that isn't the one being eaten"
             <REMOVE-ALL-INSPIRATION ,PRSO>
             ;"Finally, remove ediblebit so we cannot re-consume inspiration"
-            <FCLEAR ,PRSO ,EDIBLEBIT>)>>
+            <FCLEAR ,PRSO ,EDIBLEBIT>
+            <RTRUE>)>>
 

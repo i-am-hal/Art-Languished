@@ -9,6 +9,9 @@ LOVE      <-DESPAIR-> LOATHE"
 ;"What act we're in"
 <GLOBAL ACT-NUMBER        0>
 
+;"Simply if the character is asleep ~ in dreamlands"
+<GLOBAL DREAMING? <>>
+
 ;"The different focuses in terms of artistic expression"
 <CONSTANT ART-FOCUS-WRITING   1>
 <CONSTANT ART-FOCUS-PAINTING  2>
@@ -36,6 +39,8 @@ LOVE      <-DESPAIR-> LOATHE"
 
 <PROPDEF EMOTIONS <>
     (EMOTIONS "OPT" COHERENCE CO:FIX "OPT" DISSONANCE DC:FIX "OPT" LOVE LV:FIX "OPT" LOATHE LT:FIX "OPT" DREAD DD:FIX = (DREAD <WORD .DD>)  (COHERENCE <WORD .CO>) (LOVE <WORD .LV>)
+                                                                                                                        (LOATHE <WORD .LT>) (DISSONANCE <WORD .DC>))
+    (EMOTIONS "OPT" LOVE LV:FIX "OPT" LOATHE LT:FIX "OPT" COHERENCE CO:FIX "OPT" DISSONANCE DC:FIX "OPT" DREAD DD:FIX = (DREAD <WORD .DD>)  (COHERENCE <WORD .CO>) (LOVE <WORD .LV>)
                                                                                                                         (LOATHE <WORD .LT>) (DISSONANCE <WORD .DC>))
     ;(EMOTIONS COHERENCE  CO:FIX "OPT" DREAD DD:FIX = (COHERENCE <WORD .CO>) (DREAD <WORD .DD>))
     ;(EMOTIONS DISSONANCE DC:FIX "OPT" DREAD DD:FIX = (DISSONANCE <WORD .DC>) (DREAD <WORD .DD>))
@@ -125,6 +130,34 @@ LOVE      <-DESPAIR-> LOATHE"
         (<=? ,FEELING-SEVERE       .DD> <TELL "As the light falls on you, you know you're being watched." CR>)
         (<=? ,FEELING-INTENSE      .DD> <TELL "You're ceratin something is stalking you. Lurking in the light. Hunting." CR>)
         (<=? ,FEELING-DEBILITATING .DD> <TELL "Your heart grows faint. You know that you cannot forever dwell within darkness." CR>)>>
+
+<CONSTANT GOING-TO-SLEEP-TBL <LTABLE 
+    "You slide underneath your sheets, rest your head on a pillow, and close your eyes. Eventually the world around you, the bed beneath you, melts away.."
+    "After putting on night clothes you get into bed. The soft mattress greeting your shoulders. You quickly find yourself sinking back, .. back, ..."
+    "You pulled yourself into bed, and covered yourself with the blankets. You bury your head into the pillows, and close your eyes, and wait for everything to fall away..">>
+
+<SYNTAX GO TO OBJECT (FIND KLUDGEBIT) SLEEP OBJECT (FIND KLUDGEBIT) = V-SLEEP ;PRE-SLEEP>
+<SYNTAX SLEEP IN OBJECT = V-SLEEP>
+<SYNTAX SLEEP OBJECT (FIND KLUDGEBIT) = V-SLEEP>
+<VERB-SYNONYM SLEEP REST NAP DOZE SNOOZE HONKSHOO>
+
+<ROUTINE V-SLEEP ()
+    <COND
+        (,AUGUR-IS-LEADING?
+            <TELL "Sleep? You're not even sure "> <ITALICIZE "how."> <TELL " After all, you have no need for sleep." CR>)
+    
+        ;"Not dreaming, and in bedroom, go to sleep"
+        (<AND <NOT ,DREAMING?> <=? ,HERE ,APARTMENT-BEDROOM>>
+            <TELL <PICK-ONE-R ,GOING-TO-SLEEP-TBL> CR CR>
+            <SETG DREAMING? T>
+            <GOTO ,DERELICT-COTTAGE>)
+        
+        ;"Not dreaming, not in bedroom, 'we should go to our bedroom'"
+        (<AND <NOT ,DREAMING?> <N=? ,HERE ,APARTMENT-BEDROOM>>
+            <TELL "Well certainly you could, you know your bed would be much more comfortable." CR>)
+        
+        (,DREAMING?
+            <TELL "No,.. no. Could one even return from such an endevour?" CR>)>>
 
 ;"Single function to output the text in bold"
 <ROUTINE BOLD (STR)

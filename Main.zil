@@ -25,7 +25,7 @@
     * INSPIRATIONBIT ~ Marks object as INSPIRATION which can later be consumed to create art
     * COMPLETEDBIT   ~ Marks a task/'quest' as being completed
     * TASKBIT        ~ Marks object as a task"
-<SETG EXTRA-FLAGS '(INSPIRATIONBIT COMPLETEDBIT TASKBIT)>
+<SETG EXTRA-FLAGS '(INSPIRATIONBIT COMPLETEDBIT TASKBIT FURNITUREBIT)>
 
 
 <INSERT-FILE "parser">
@@ -35,6 +35,7 @@
 <INSERT-FILE "Globals">
 <INSERT-FILE "Templates">
 <INSERT-FILE "Apartment">
+<INSERT-FILE "Dreamlands">
 <INSERT-FILE "Transitions">
 <INSERT-FILE "Theater">
 
@@ -248,6 +249,18 @@ DON'T WORK DURING RELEASE YOU DOLT!"
         (<AND <L? ,PLAYER-DISSONANCE ,FEELING-SEVERE> <G? ,PLAYER-APATHY ,FEELING-ABSENT>>
             <SETG PLAYER-DISSONANCE <+ ,PLAYER-DISSONANCE 1>>
             <SETG PLAYER-APATHY <- ,PLAYER-APATHY 1>>)>>
+
+<SYNTAX MORE DESPAIR OBJECT (FIND KLUDGEBIT) = V-MORE-DESPAIR PRE-DEBUG>
+
+<ROUTINE V-MORE-DESPAIR ()
+    <COND
+        ;"Add more loathing to cancel love"
+        (<G? ,PLAYER-LOVE ,FEELING-ABSENT>
+            <V-MORE-LOATHE>)
+        
+        ;"Add more love to cancel loathing"
+        (<G? ,PLAYER-LOATHE ,FEELING-ABSENT>
+            <V-MORE-LOVE>)>>
 
 "SKIPPING THE INTRO"
 
