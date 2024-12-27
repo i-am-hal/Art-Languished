@@ -75,5 +75,7 @@ behavior for when being consumed and the like.)"
             <PUSH-TO-EMOTION .DISSONANCE-DELTA V-MORE-DISSONANCE>
             <PUSH-TO-EMOTION .COHERENCE-DELTA  V-MORE-COHERENCE>
             ;"Remove all inspiration that isn't the one being eaten"
-            <REMOVE-ALL-INSPIRATION ,PRSO>)>>
+            <REMOVE-ALL-INSPIRATION ,PRSO>
+            ;"Finally, remove ediblebit so we cannot re-consume inspiration"
+            <FCLEAR ,PRSO ,EDIBLEBIT>)>>
 
