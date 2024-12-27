@@ -1,6 +1,7 @@
 "Art, Languished - Main"
 
-<CONSTANT GAME-BANNER "Art, Languished|Written by Xal|Dedicated to my best friend, Liv">
+<CONSTANT GAME-TITLE       "Art, Languished">
+<CONSTANT GAME-DESCRIPTION "Written by Xal, and dedicated to Liv.">
 <CONSTANT RELEASED 1> <VERSION 8>
 
 ;"Defines all color globals"
@@ -21,8 +22,10 @@
 <CONSTANT H-ITALIC      4>
 
 ;"Flags defined for this game:
-    * INSPIRATIONBIT ~ Marks object as INSPIRATION which can later be consumed to create art"
-<SETG EXTRA-FLAGS '(INSPIRATIONBIT)>
+    * INSPIRATIONBIT ~ Marks object as INSPIRATION which can later be consumed to create art
+    * COMPLETEDBIT   ~ Marks a task/'quest' as being completed
+    * TASKBIT        ~ Marks object as a task"
+<SETG EXTRA-FLAGS '(INSPIRATIONBIT COMPLETEDBIT TASKBIT)>
 
 
 <INSERT-FILE "parser">
@@ -245,6 +248,52 @@ DON'T WORK DURING RELEASE YOU DOLT!"
         (<AND <L? ,PLAYER-DISSONANCE ,FEELING-SEVERE> <G? ,PLAYER-APATHY ,FEELING-ABSENT>>
             <SETG PLAYER-DISSONANCE <+ ,PLAYER-DISSONANCE 1>>
             <SETG PLAYER-APATHY <- ,PLAYER-APATHY 1>>)>>
+
+"SKIPPING THE INTRO"
+
+<SYNTAX SKIP INTRO OBJECT (FIND KLUDGEBIT) = V-SKIP-INTRO PRE-DEBUG>
+<SYNTAX SKIP OBJECT (FIND KLUDGEBIT) = V-SKIP-INTRO PRE-DEBUG>
+
+;"Bare minimum to capture background selection"
+<LIGHTROOM DEBUG-SKIP-POSITIVE 
+    (ENTRYFCN PROLOGUE-LOVE-THE-ARTS-F)
+    (CHOICEEXIT DEBUG-CHOOSE-SKILL)>
+
+<LIGHTROOM DEBUG-SKIP-NEUTRAL 
+    (ENTRYFCN PROLOGUE-TIRED-OF-MOLD-F)
+    (CHOICEEXIT DEBUG-CHOOSE-SKILL)>
+
+<LIGHTROOM DEBUG-SKIP-NEGATIVE 
+    (ENTRYFCN PROLOGUE-DESPERATE-FOR-MORE-F)
+    (CHOICEEXIT DEBUG-CHOOSE-SKILL)>
+
+;"Bare min required to capture skill choice"
+<LIGHTROOM DEBUG-SKILL-WRITING 
+    (ENTRYFCN PROLOGUE-SET-WRITING-AFFINITY)
+    (CHOICEEXIT PROLOGUE-CHEERS-FADE)>
+
+<LIGHTROOM DEBUG-SKILL-PAINTING 
+    (ENTRYFCN PROLOGUE-SET-PAINTING-AFFINITY)
+    (CHOICEEXIT PROLOGUE-CHEERS-FADE)>
+
+<LIGHTROOM DEBUG-SKILL-SCULPTING 
+    (ENTRYFCN PROLOGUE-SET-SCULPTING-AFFINITY)
+    (CHOICEEXIT PROLOGUE-CHEERS-FADE)>
+
+<LIGHTROOM DEBUG-CHOOSE-SKILL (DESC "Choose Expertise")
+    (CHOICES
+        1 "Poetry, writing." TO DEBUG-SKILL-WRITING
+        2 "Painting, sketching." TO DEBUG-SKILL-PAINTING
+        3 "Sculpting, pottery." TO DEBUG-SKILL-SCULPTING)>
+
+<LIGHTROOM DEBUG-SKIP-INTRO (DESC "Choose Background")
+    (CHOICES
+        1 "Always Loved Art   (Positive)" TO DEBUG-SKIP-POSITIVE
+        2 "Tired of this Mold (Neutral)" TO DEBUG-SKIP-NEUTRAL
+        3 "More than One Note (Negative)" TO DEBUG-SKIP-NEGATIVE)>
+
+<ROUTINE V-SKIP-INTRO ()
+    <GOTO ,DEBUG-SKIP-INTRO>>
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
