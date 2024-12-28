@@ -132,9 +132,10 @@ LOVE      <-DESPAIR-> LOATHE"
         (<=? ,FEELING-DEBILITATING .DD> <TELL "Your heart grows faint. You know that you cannot forever dwell within darkness." CR>)>>
 
 <CONSTANT GOING-TO-SLEEP-TBL <LTABLE 
-    "You slide underneath your sheets, rest your head on a pillow, and close your eyes. Eventually the world around you, the bed beneath you, melts away.."
-    "After putting on night clothes you get into bed. The soft mattress greeting your shoulders. You quickly find yourself sinking back, .. back, ..."
-    "You pulled yourself into bed, and covered yourself with the blankets. You bury your head into the pillows, and close your eyes, and wait for everything to fall away..">>
+ "You slide underneath your sheets, rest your head on a pillow, and close your eyes. Eventually the world around you, the bed beneath you, melts away.."
+ "After putting on night clothes you get into bed. The soft mattress greeting your shoulders. You quickly find yourself sinking back, .. back, ..."
+ "You pulled yourself into bed, and covered yourself with the blankets. You bury your head into the pillows, close your eyes, and wait for everything to fall away.."
+ "You collapse into the mattress. You hadn't realized how tired you were. Your consciousness slips away like the turning off of an electric light.">>
 
 <SYNTAX GO TO OBJECT (FIND KLUDGEBIT) SLEEP OBJECT (FIND KLUDGEBIT) = V-SLEEP ;PRE-SLEEP>
 <SYNTAX SLEEP IN OBJECT = V-SLEEP>
@@ -178,7 +179,21 @@ LOVE      <-DESPAIR-> LOATHE"
 ;"Tests / Conditions"
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+;"Everytime an event or something with one of these options comes up, it will increase its weight
+(reinforcing that this path will continue to show up in the future.) Each point in weight +10% prob"
+<GLOBAL CARCOSA-WEIGHT   0>
+<GLOBAL AZAGARATH-WEIGHT 0>
+<GLOBAL SANCTUM-WEIGHT   0>
+
 "Randomly tests if Carcosa/Yellow King has successfully influenced the dreamlands.
 Every point of dread is +13% probability, and every point of despair +11%"
 <ROUTINE CALL-OF-CARCOSA? ()
-    <RETURN <PROB <+ <* 13 ,PLAYER-DREAD> <* 11 ,PLAYER-DESPAIR>>>>>
+    <RETURN <PROB <+ <* 13 ,PLAYER-DREAD> <* 11 ,PLAYER-DESPAIR> <* 10 ,CARCOSA-WEIGHT>>>>>
+
+"Randomly tests if Azagarath will influence the dreamlands/the player.
+Every point of dread is +6%, and dissonance a +15%"
+<ROUTINE NAME-OF-THE-ONE? ()
+    <RETURN <PROB <+ <* 6 ,PLAYER-DREAD> <* 15 ,PLAYER-DISSONANCE> <* 17 ,AZAGARATH-WEIGHT>>>>>
+
+"Randomly tests if the truth of the sanctum will influence dreamlands/player."
+;<ROUTINE TRUTH-OF-THE-SANCTUM? ()>

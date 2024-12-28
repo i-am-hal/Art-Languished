@@ -4,6 +4,9 @@
     (IN ROOMS)
     (FLAGS RLANDBIT LIGHTBIT)>
 
+<PROPDEF TRIGGER <>
+    (TRIGGER X:FCN = <WORD .X> <BYTE 0>)>
+
 ;"Text response to inspiration being consumed"
 <PROPDEF FLAVOR <>>
 
@@ -15,6 +18,19 @@
     (RENDER WITH F:FCN    = (FCNRENDER <WORD .F>) <BYTE 0>)
     (RENDER O:OBJECT      = (CONSTRENDER <OBJECT .O>))
     (RENDER WITH O:OBJECT = (CONSTRENDER <OBJECT .O>))>
+
+;"Given some piece of inspiration, attempts to render it utilizing its RENDER property. FALSE if unable to render."
+<ROUTINE RENDER-INSPIRATION (INSPO "AUX" (RENDER-FCN <GETP .INSPO ,P?FCNRENDER>) (RENDER-CONST <GETP .INSPO ,P?CONSTRENDER>))
+    <COND
+        (<AND <NOT .RENDER-FCN> <NOT .RENDER-CONST>>
+            <TELL "Try as you might, you are completely unable to capture its essense, its likeness, with artistic expression." CR>
+            <RFALSE>)
+        
+        ;"Return result from utilizing its render function"
+        (.RENDER-FCN <RETURN <APPLY .RENDER-FCN>>)
+        
+        ;"Constant rendering, return the constant"
+        (.RENDER-CONST <RETURN .RENDER-CONST>)>>
 
 <OBJECT-TEMPLATE INSPIRATION = OBJECT
     (ACTION INSPIRATION-OBJECT-F)

@@ -25,7 +25,7 @@
     * INSPIRATIONBIT ~ Marks object as INSPIRATION which can later be consumed to create art
     * COMPLETEDBIT   ~ Marks a task/'quest' as being completed
     * TASKBIT        ~ Marks object as a task"
-<SETG EXTRA-FLAGS '(INSPIRATIONBIT COMPLETEDBIT TASKBIT FURNITUREBIT)>
+<SETG EXTRA-FLAGS '(INSPIRATIONBIT COMPLETEDBIT TASKBIT VISITEDBIT)>
 
 
 <INSERT-FILE "parser">
