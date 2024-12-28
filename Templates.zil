@@ -96,3 +96,31 @@ behavior for when being consumed and the like.)"
             <FCLEAR ,PRSO ,EDIBLEBIT>
             <RTRUE>)>>
 
+<SYNTAX TALK TO OBJECT (FIND PRESONBIT) = V-TALK PRE-TALK>
+<SYNTAX CHAT WITH OBJECT (FIND PERSONBIT) = V-TALK PRE-TALK>
+
+<SYNTAX ASK OBJECT (FIND PERSONBIT) ABOUT OBJECT = V-TALK-ABOUT PRE-TALK>
+<VERB-SYNONYM ASK INQUIRE QUERY>
+
+<ROUTINE PRE-TALK ()
+    <COND (<NOT <FSET? ,PRSO ,PERSONBIT>>
+        <TELL "You might look crazy if you start trying to talk with things like " T ,PRSO "." CR>)>>
+
+<ROUTINE V-TALK ()
+    <TELL "They seem uninterested in talking to you." CR>>
+
+<ROUTINE V-TALK-ABOUT ()
+    <TELL "They seem uninterested in talking about to you." CR>>
+
+;"This will be a table (LTABLE) of choice objects w/ TRIGGER properties. Will go
+sequentially, selecting the closest from index 0 that has trigger return true."
+<PROPDEF TALKTBL <>>
+
+;""
+<OBJECT-TEMPLATE TALK-PERSON = OBJECT
+    (ACTION TALK-PERSON-F)
+    (FLAGS PERSONBIT)>
+
+<ROUTINE TALK-PERSON-F ("AUX" (TBL <GETP ,PRSO ,P?TALKTBL>))
+    ;"If talking, and has talk table, walk through that"
+    <COND (<AND <VERB? TALK> .TBL>)>>
