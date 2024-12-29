@@ -185,15 +185,19 @@ LOVE      <-DESPAIR-> LOATHE"
 <GLOBAL AZAGARATH-WEIGHT 0>
 <GLOBAL SANCTUM-WEIGHT   0>
 
+;"Global flags for this dream what influences are in play"
+<GLOBAL INFLUENCE-CARCOSA   <>>
+<GLOBAL INFLUENCE-AZAGARATH <>>
+
 "Randomly tests if Carcosa/Yellow King has successfully influenced the dreamlands.
 Every point of dread is +13% probability, and every point of despair +11%"
 <ROUTINE CALL-OF-CARCOSA? ()
-    <RETURN <PROB <+ <* 13 ,PLAYER-DREAD> <* 11 ,PLAYER-DESPAIR> <* 10 ,CARCOSA-WEIGHT>>>>>
+    <RETURN <SETG INFLUENCE-CARCOSA <PROB <+ <* 13 ,PLAYER-DREAD> <* 11 ,PLAYER-DESPAIR> <* 10 ,CARCOSA-WEIGHT>>>>>>
 
 "Randomly tests if Azagarath will influence the dreamlands/the player.
 Every point of dread is +6%, and dissonance a +15%"
 <ROUTINE NAME-OF-THE-ONE? ()
-    <RETURN <PROB <+ <* 6 ,PLAYER-DREAD> <* 15 ,PLAYER-DISSONANCE> <* 17 ,AZAGARATH-WEIGHT>>>>>
+    <RETURN <SETG INFLUENCE-AZAGARATH <PROB <+ <* 6 ,PLAYER-DREAD> <* 15 ,PLAYER-DISSONANCE> <* 17 ,AZAGARATH-WEIGHT>>>>>>
 
 "Randomly tests if the truth of the sanctum will influence dreamlands/player."
 ;<ROUTINE TRUTH-OF-THE-SANCTUM? ()>

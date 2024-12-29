@@ -110,7 +110,7 @@ behavior for when being consumed and the like.)"
     <TELL "They seem uninterested in talking to you." CR>>
 
 <ROUTINE V-TALK-ABOUT ()
-    <TELL "They seem uninterested in talking about to you." CR>>
+    <TELL "They seem uninterested in talking about that with you." CR>>
 
 ;"This will be a table (LTABLE) of choice objects w/ TRIGGER properties. Will go
 sequentially, selecting the closest from index 0 that has trigger return true."
@@ -121,6 +121,20 @@ sequentially, selecting the closest from index 0 that has trigger return true."
     (ACTION TALK-PERSON-F)
     (FLAGS PERSONBIT)>
 
-<ROUTINE TALK-PERSON-F ("AUX" (TBL <GETP ,PRSO ,P?TALKTBL>))
+<ROUTINE TALK-PERSON-F ("AUX" (TBL <GETP ,PRSO ,P?TALKTBL>) (TOPIC <>))
     ;"If talking, and has talk table, walk through that"
-    <COND (<AND <VERB? TALK> .TBL>)>>
+    <COND (<AND <VERB? TALK TALK-ABOUT> .TBL>
+        ;"Loop over all the rooms in the table"
+        <REPEAT ((I 1) (LEN <GET .TBL 0>) (TRGR <>) (RM <>))
+            <COND
+                ;"Breakout condition"
+                (<G? .I .LEN> <RETURN>)
+                ;"If the triggger for this currently looked at room isn't selected and trigger is true, take this"
+                (<AND <SET TRGR <GETP <SET RM <GET .TBL .I>> ,P?TRIGGER>> <NOT <FSET? .RM ,TOUCHBIT>> <APPLY .TRGR>>
+                    <FSET .RM ,TOUCHBIT>
+                    <SET TOPIC .RM>
+                    <RETURN>)>
+            <INC I>>
+        
+        ;"If topic is none-- should fall back to default case w/ talk"
+        <RETURN .TOPIC>)>>

@@ -40,13 +40,13 @@ a dream gives player +1 DESPAIR. Subs love/loathe to do so"
 <GLOBAL WESTERN-TRAIL  <>>
 
 ;"Will randomly select a trailhead"
-<ROUTINE SELECT-TRAIL-HEAD (TBL "OPT" (CARCOSA? <>) (AZAGARATH? <>) "AUX" (TRAILHEAD <>))
+<ROUTINE SELECT-TRAIL-HEAD (TBL "AUX" (TRAILHEAD <>))
     <SET TRAILHEAD <PICK-ONE-R .TBL>>
 
     <REPEAT ((TRIGGER-FCN <GETP .TRAILHEAD ,P?TRIGGER>))
         <COND 
             ;"If hasn't been picked before, has trigger fcn which returns true w/ params carcosa? and azagarath?, valid pick"
-            (<AND .TRAILHEAD <NOT <FSET? .TRAILHEAD ,VISITEDBIT>> .TRIGGER-FCN <APPLY .TRIGGER-FCN .CARCOSA? .AZAGARATH?>>
+            (<AND .TRAILHEAD <NOT <FSET? .TRAILHEAD ,VISITEDBIT>> .TRIGGER-FCN <APPLY .TRIGGER-FCN>>
                 <RETURN>)>
         
         <SET TRAILHEAD   <PICK-ONE-R .TBL>>
@@ -77,7 +77,7 @@ a dream gives player +1 DESPAIR. Subs love/loathe to do so"
 Not even in the metropolis you reside in- no sky scraper evokes in you the awe and dread that one
 could imagine having at seeing the Tower of Babel. You weren't even sure how you initially tapped
 this as a dam, and not some great wall or fortification. The size makes you wonder how much water
-it could possibly be holding back? Surely only an ocean would be beffitting such a structure.")>
+it could possibly be holding back. Surely only an ocean would be beffitting such a structure.")>
 
 <INSPIRATION BLOOD-DAMN-INSPO (DESC "")>
 
@@ -90,16 +90,18 @@ it could possibly be holding back? Surely only an ocean would be beffitting such
     (SOUTH PER DREAM-SOUTH-TRAIL-HEAD-F)
     (WEST  PER DREAM-WEST-TRAIL-HEAD-F)>
 
-<ROUTINE SOMBER-PLANES-ENTRY-F ("AUX" (CARCOSA? <CALL-OF-CARCOSA?>) (AZAGARATH? <NAME-OF-THE-ONE?>))
+<ROUTINE SOMBER-PLANES-ENTRY-F ()
+    ;"Check on the influences on this dream"
+    <CALL-OF-CARCOSA?> <NAME-OF-THE-ONE?>
     <COND
         (<AND <NOT ,PROLOGUE-COMPLETE> <NOT <FSET? ,SOMBER-PLANES ,TOUCHBIT>>>
             )
 
         ;"Upon first entry in dreamlands, and not prologue, select the trail heads"
         (<AND <NOT <FSET? ,SOMBER-PLANES ,TOUCHBIT>> ,PROLOGUE-COMPLETE>
-            <SETG NORTHERN-TRAIL <SELECT-TRAIL-HEAD ,NORTH-TRAIL-HEAD .CARCOSA? .AZAGARATH?>>
-            ;<SETG SOUTHERN-TRAIL <SELECT-TRAIL-HEAD ,SOUTH-TRAIL-HEAD .CARCOSA? .AZAGARATH?>>
-            ;<SETG WESTERN-TRAIL  <SELECT-TRAIL-HEAD ,WEST-TRAIL-HEAD  .CARCOSA? .AZAGARATH?>>)>>
+            <SETG NORTHERN-TRAIL <SELECT-TRAIL-HEAD ,NORTH-TRAIL-HEAD>>
+            ;<SETG SOUTHERN-TRAIL <SELECT-TRAIL-HEAD ,SOUTH-TRAIL-HEAD>>
+            ;<SETG WESTERN-TRAIL  <SELECT-TRAIL-HEAD ,WEST-TRAIL-HEAD>>)>>
 
 <ROUTINE DREAM-NORTH-TRAIL-HEAD-F ()
     <COND
